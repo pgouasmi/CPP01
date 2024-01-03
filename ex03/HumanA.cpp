@@ -15,16 +15,15 @@
 
 void	HumanA::attack()
 {
-	std::cout << this->name << " attacks with their " << this->HeldWeapon.getType() << std::endl;
+	std::cout << this->name << " attacks with their " << HeldWeapon.getType() << std::endl;
 }
 
-HumanA::HumanA(std::string Name, Weapon WeaponConstructor)
+HumanA::HumanA(std::string Name, Weapon &WeaponConstructor) : name(Name), HeldWeapon(WeaponConstructor)
 {
-	name = Name;
-	HeldWeapon = WeaponConstructor;
+	std::cout << "Human A " << Name << " spawned with " << WeaponConstructor.getType() << std::endl;
 }
 
 HumanA::~HumanA()
 {
-	std::cout << name << " deleted." << std::endl;
+	std::cout << "HumanA " << name << " deleted." << std::endl;
 }

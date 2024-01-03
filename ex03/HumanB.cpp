@@ -15,21 +15,23 @@
 
 void	HumanB::attack()
 {
-	std::cout << this->name << " attacks with their " << this->HeldWeapon.getType() << std::endl;
+	Weapon temp = *HeldWeapon;
+	std::cout << this->name << " attacks with their " << temp.getType() << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon NewWeapon)
+void	HumanB::setWeapon(Weapon &NewWeapon)
 {
-	HeldWeapon = NewWeapon;
+	HeldWeapon = &NewWeapon;
 }
 
-HumanB::HumanB(std::string Name)
+HumanB::HumanB(std::string Name) : name(Name), HeldWeapon(NULL)
 {
 	name = Name;
+	std::cout << "HumanB " << Name << " spawned naked" << std::endl;
 }
 
 HumanB::~HumanB()
 {
-	std::cout << name << " deleted." << std::endl;
+	std::cout << "HumanB " << name << " deleted." << std::endl;
 }
 

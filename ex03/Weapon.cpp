@@ -36,5 +36,5 @@ Weapon::Weapon()
 
 Weapon::~Weapon()
 {
-
+	std::cout << "Weapon " << type << " deleted" <<std::endl;
 }
