@@ -27,9 +27,11 @@ RM = @rm -rf
 CC = @c++
 DIR = @mkdir -p
 PRINT = @echo
-HEADERS =	Sed.hpp 
+HEADERS =	Sed.hpp
 
-FILES =	main 
+FILES =	main \
+		Sed
+
 
 OBJS = $(addsuffix .o, $(addprefix Objects/, $(FILES)))
 

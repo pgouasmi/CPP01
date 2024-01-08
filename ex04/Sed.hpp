@@ -19,5 +19,28 @@
 #include <cstring>
 #include <cstdlib>
 
+class Sed
+{
+private:
+	std::string Infile;
+	std::string Outfile;
+	std::string ToModify;
+	std::string Modified;
+	std::string	Line;
+	std::string ModifiedLine;
+	std::ifstream In;
+	std::ofstream Out;
+public:
+	Sed(char **argv);
+	~Sed();
+	void		Struct_init();
+	int			CheckInOut();
+	std::string	GetInfile();
+	std::string	GetOutfile();
+	int			Read();
+	void		SearchAndReplace();
+	void		CloseFd();
+};
+
 
 #endif
