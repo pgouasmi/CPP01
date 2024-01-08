@@ -6,7 +6,7 @@
 /*   By: pgouasmi <pgouasmi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 18:37:12 by pgouasmi          #+#    #+#             */
-/*   Updated: 2024/01/08 16:09:48 by pgouasmi         ###   ########.fr       */
+/*   Updated: 2024/01/08 16:36:30 by pgouasmi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ void	Sed::SearchAndReplace()
 	}
 	while (found != std::string::npos)
 	{
-		if (Line.empty())
-			return ;
-		Out << Line.substr(index, found) << Modified;
-		found += ToModify.length();
-		index = found;
+		// if (Line.empty())
+		// 	return ;
+		if (found != index)
+			Out << Line.substr(index, found - index);
+		Out << Modified;
+		index = found + ToModify.length();
 		found = Line.find(ToModify, index);
 	}
 	if (index != Line.length())
